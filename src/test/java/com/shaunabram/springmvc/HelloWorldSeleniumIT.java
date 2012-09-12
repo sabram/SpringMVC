@@ -2,24 +2,22 @@ package com.shaunabram.springmvc;
 
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.*;
 import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 public class HelloWorldSeleniumIT {
 	private WebDriver driver;
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
-    private final Log log = LogFactory.getLog(HelloWorldSeleniumIT.class);
+//    private final Log log = LogFactory.getLog(HelloWorldSeleniumIT.class);
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new InternetExplorerDriver();
+		driver = new FirefoxDriver();//or ChromeDriver();
 		baseUrl = "http://localhost:8080/";
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
@@ -27,7 +25,7 @@ public class HelloWorldSeleniumIT {
     @Test
     public void containsInitialGreeting() throws Exception {
         driver.get(baseUrl + "SpringMVC/HelloWorld");
-        driver.getPageSource().contains("Hello World!");
+        assertTrue(driver.getPageSource().contains("Hello World!"));
     }
 
 	@Test
@@ -37,9 +35,10 @@ public class HelloWorldSeleniumIT {
         String recipient = "John";
 		driver.findElement(By.id("jsTextbox")).sendKeys(recipient);
         driver.findElement(By.name("jsSubmit"));
-        driver.getPageSource().contains("Hello " + recipient + " from JavaScript!");
+        assertTrue(driver.getPageSource().contains("Hello " + recipient + " from JavaScript!"));
 	}
 
+    @Ignore
     @Test
     public void displaysCustomizedGreetingFromSpringMVC() throws Exception {
         driver.get(baseUrl + "SpringMVC/HelloWorld");
