@@ -24,7 +24,7 @@
 
         Say Hello to: <input id="jsTextbox" type="text" />
         <input name="jsSubmit" onclick="sayHello(document.getElementById('jsTextbox').value)" type="button" value="Submit" />
-        <label id="greeting"></label>
+        <label id="jsGreeting"></label>
 
 
 

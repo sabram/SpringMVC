@@ -34,21 +34,20 @@ public class HelloWorldSeleniumIT {
 		driver.findElement(By.id("jsTextbox")).clear();
         String recipient = "John";
 		driver.findElement(By.id("jsTextbox")).sendKeys(recipient);
-        driver.findElement(By.name("jsSubmit"));
-        assertTrue(driver.getPageSource().contains("Hello " + recipient + " from JavaScript!"));
+        driver.findElement(By.name("jsSubmit")).click();
+        String greeting = driver.findElement(By.id("jsGreeting")).getText();
+        assertEquals("Hello " + recipient + " from JavaScript!", greeting);
 	}
 
-    @Ignore
     @Test
     public void displaysCustomizedGreetingFromSpringMVC() throws Exception {
         driver.get(baseUrl + "SpringMVC/HelloWorld");
-        driver.findElement(By.id("springmvcTextbox")).clear();
+        driver.findElement(By.name("springmvcTextbox")).clear();
         String recipient = "Mary";
         driver.findElement(By.name("springmvcTextbox")).sendKeys(recipient);
-        driver.findElement(By.name("springmvcSubmit"));
-        String greeting = driver.findElement(By.id("jsTextbox")).getText();
-        assertEquals("Hello " + recipient + " from SpringMVC! failme", greeting);
-        //pageSource.contains("Hello " + recipient + " from JavaScript!");
+        driver.findElement(By.name("springmvcSubmit")).click();
+        String greeting = driver.findElement(By.id("springmvcGreeting")).getText();
+        assertEquals("Hello " + recipient + " from SpringMVC!", greeting);
     }
 
 	@After
