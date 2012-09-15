@@ -8,6 +8,9 @@
     </head>
     <body>
 
+    <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+
     <div style="text-align:center">Hello World!</div>
 
         <c:choose>
@@ -27,8 +30,9 @@
         <label id="jsGreeting"></label>
 
 
+    <!-- a href="${contextPath}/admin/listPeople">Go to People List</a -->
 
-        <FORM ACTION="/SpringMVC/HelloWorld">
+    <FORM ACTION="${contextPath}/HelloWorld">
             Say Hello to:
             <INPUT TYPE="TEXT" NAME="springmvcTextbox" value="${springmvcTextbox}">
             <INPUT name="springmvcSubmit" TYPE="SUBMIT" VALUE="Submit">
