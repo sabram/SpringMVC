@@ -21,11 +21,8 @@ public class HelloWorldController {
     }
 
     @RequestMapping(value = "/HelloWorld", method = RequestMethod.GET)
-    public String greeting(@RequestParam(value="springmvcTextbox", required=false) String springmvcTextbox, Model model) {
-
-        String greeting = "Hello " + springmvcTextbox + " from SpringMVC!";
-        model.addAttribute("springmvcTextbox", greeting);
+    public String greeting(@RequestParam(value="msg", required=false) String msg, Model model) {
+        model.addAttribute("msg", msg);
         return "HelloWorld";
-
     }
 }
