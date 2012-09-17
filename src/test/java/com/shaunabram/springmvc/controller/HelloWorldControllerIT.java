@@ -9,7 +9,7 @@ import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 
 @RunWith(value = SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:servlet-context.xml"})
+@ContextConfiguration(locations={"classpath:spring/appServlet/servlet-context.xml"})
 public class HelloWorldControllerIT {
 
     @Autowired
