@@ -1,4 +1,4 @@
-package com.shaunabram.springmvc;
+package com.shaunabram.springmvc.client;
 
 import java.util.concurrent.TimeUnit;
 

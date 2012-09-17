@@ -1,5 +1,7 @@
-package com.shaunabram.springmvc;
+package com.shaunabram.springmvc.controller;
 
+import com.shaunabram.springmvc.service.HelloWorldService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloWorldController {
 
+    private final HelloWorldService helloWorldService;
+
+    @Autowired
+    public HelloWorldController(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
+
     @RequestMapping(value = "/")
     public String home() {
         System.out.println("HelloWorldController: Passing through");
@@ -22,7 +31,8 @@ public class HelloWorldController {
 
     @RequestMapping(value = "/HelloWorld", method = RequestMethod.GET)
     public String greeting(@RequestParam(value="msg", required=false) String msg, Model model) {
-        model.addAttribute("msg", msg);
+        String greeting = helloWorldService.getGreeting(msg);
+        model.addAttribute("msg", greeting);
         return "HelloWorld";
     }
 }

@@ -1,4 +1,4 @@
-package com.shaunabram.springmvc;
+package com.shaunabram.springmvc.controller;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
