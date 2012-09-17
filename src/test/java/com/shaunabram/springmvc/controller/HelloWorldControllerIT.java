@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 
 @RunWith(value = SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring/appServlet/servlet-context.xml"})
+// http://stackoverflow.com/questions/10385452/location-of-spring-context-xml
 public class HelloWorldControllerIT {
 
     @Autowired
