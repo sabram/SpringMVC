@@ -18,7 +18,7 @@ public class HelloWorldSeleniumIT {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();//or ChromeDriver();
-		baseUrl = "http://localhost:8080/";
+		baseUrl = "http://localhost:9090/";
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 

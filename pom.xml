@@ -21,7 +21,6 @@
             <version>2.12</version>
         </dependency>
 
-
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -128,6 +127,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${org.springframework-version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -220,6 +220,12 @@
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <stopPort>8005</stopPort>
                     <stopKey>STOP</stopKey>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>9090</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
                 </configuration>
                 <executions>
                     <execution>
