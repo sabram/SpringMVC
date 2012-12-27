@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Handles requests for the HelloWorld example.
  */
 @Controller
+@SuppressWarnings("unused")
 public class HelloWorldController {
 
     private final HelloWorldService helloWorldService;
@@ -24,7 +25,7 @@ public class HelloWorldController {
     @RequestMapping(value = "/")
     public String home() {
         System.out.println("HelloWorldController: Passing through");
-        //without AppConfig view resolver
+        //without view resolver
         // return "WEB-INF/views/HelloWorld.jsp";
         return "HelloWorld";
     }
