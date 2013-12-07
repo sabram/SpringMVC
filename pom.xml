@@ -246,6 +246,14 @@
                             <goal>stop</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <!-- workaround in case jetty did not stop properly last time -->
+                        <id>ensure-stop-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
