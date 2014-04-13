@@ -3,4 +3,6 @@ A Html/JSP/JavaScript client, talks to a Spring-DI enabled server with a simplis
 The app is tested using JUnit, FEST assertions and Selenium.
 The app's functionality is deliberately simplistic, but is useful as a template to bootstrap more complex apps.
 
+See also http://www.shaunabram.com/springmvc-continuous-deployment/
+
 
