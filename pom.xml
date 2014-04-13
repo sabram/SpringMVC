@@ -218,7 +218,7 @@
                 <version>6.1.16</version>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <stopPort>8005</stopPort>
+                    <stopPort>9005</stopPort>
                     <stopKey>STOP</stopKey>
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
@@ -242,6 +242,14 @@
                     <execution>
                         <id>stop-jetty</id>
                         <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <!-- workaround in case jetty did not stop properly last time -->
+                        <id>ensure-stop-jetty</id>
+                        <phase>pre-integration-test</phase>
                         <goals>
                             <goal>stop</goal>
                         </goals>
