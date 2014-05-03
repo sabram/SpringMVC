@@ -247,7 +247,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <!-- workaround in case jetty did not stop properly last time -->
+                        <!-- workaround in case jetty didn't stop properly last time -->
                         <id>ensure-stop-jetty</id>
                         <phase>pre-integration-test</phase>
                         <goals>
